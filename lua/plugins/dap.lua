@@ -92,15 +92,17 @@ return {
 
     require("nvim-dap-virtual-text").setup()
 
+    local function get_delve_path()
+      local mason_delve = vim.fn.stdpath "data" .. "/mason/bin/dlv"
+      if vim.fn.executable(mason_delve) == 1 then
+        return mason_delve
+      end
+      return vim.fn.exepath "dlv" ~= "" and vim.fn.exepath "dlv" or "dlv"
+    end
+
     require("dap-go").setup {
       delve = {
-        path = function()
-          local mason_delve = vim.fn.stdpath "data" .. "/mason/bin/dlv"
-          if vim.fn.executable(mason_delve) == 1 then
-            return mason_delve
-          end
-          return vim.fn.exepath "dlv" ~= "" and vim.fn.exepath "dlv" or "dlv"
-        end,
+        path = get_delve_path(),
       },
     }
   end,
