@@ -2,8 +2,18 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     go = { "goimports", "gci" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+
+    -- Biome para JavaScript/TypeScript/React
+    javascript = { "biome" },
+    javascriptreact = { "biome" },
+    typescript = { "biome" },
+    typescriptreact = { "biome" },
+    json = { "biome" },
+    jsonc = { "biome" },
+
+    -- Biome también soporta CSS/HTML
+    css = { "biome" },
+    html = { "biome" },
   },
 
   format_on_save = {
