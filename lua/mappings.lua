@@ -22,6 +22,15 @@ map("n", "<leader>Y", [["+Y]], { desc = "Yank line to clipboard" })
 -- paste keeping register
 map("x", "p", '"_dP', { desc = "Keep pasted text after pasted" })
 
+-- Telescope buffers
+map("n", "<leader><leader>", function()
+  require("telescope.builtin").buffers {
+    sort_mru = true,
+    ignore_current_buffer = true,
+    only_cwd = false,
+  }
+end, { desc = "Switch to last buffer" })
+
 -- LSP keybinds
 map("n", "gD", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP: [G]oto [D]efinition" })
 map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP: [G]oto [R]eferences" })
