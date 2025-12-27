@@ -9,6 +9,8 @@ return {
         "css-lsp",
         "gopls",
         "lua-language-server",
+        "json-lsp",
+        "pyright",
 
         -- Formatters & Linters
         "biome",
@@ -18,6 +20,7 @@ return {
         "gofmt",
         "golangci-lint",
         "golangci-lint-langserver",
+        "ruff",
 
         -- debug
         "delve",

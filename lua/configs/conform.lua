@@ -14,6 +14,9 @@ local options = {
     -- Biome también soporta CSS/HTML
     css = { "biome" },
     html = { "biome" },
+
+    -- Ruff para Python (linter + formatter)
+    python = { "ruff_format", "ruff_organize_imports" },
   },
 
   format_on_save = {
