@@ -34,3 +34,17 @@ autocmd({ "BufNewFile", "BufRead" }, {
     vim.bo.filetype = "jsonc"
   end,
 })
+
+-- Dadbod completion for SQL files
+autocmd("FileType", {
+  pattern = { "sql", "mysql", "plsql" },
+  callback = function()
+    -- Enable dadbod completion
+    require("cmp").setup.buffer {
+      sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" },
+      },
+    }
+  end,
+})

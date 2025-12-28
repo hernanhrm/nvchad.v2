@@ -10,10 +10,15 @@ map("i", "jk", "<ESC>")
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- oil
-map('n', '<leader>pv', '<cmd> Oil <CR>', {desc = "Toggle oil"})
+map("n", "<leader>pv", "<cmd> Oil <CR>", { desc = "Toggle oil" })
 
 -- search and replace
-map("n", "<leader>s", [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Search and replace word in cursor" })
+map(
+  "n",
+  "<leader>s",
+  [[:%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Search and replace word in cursor" }
+)
 
 -- yank to clipboard
 map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to clipboard" })
@@ -32,14 +37,33 @@ map("n", "<leader><leader>", function()
 end, { desc = "Switch to last buffer" })
 
 -- LSP keybinds
-map("n", "gD", function() require("telescope.builtin").lsp_definitions() end, { desc = "LSP: [G]oto [D]efinition" })
-map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "LSP: [G]oto [R]eferences" })
-map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "LSP: [G]oto [I]mplementation" })
-map("n", "<leader>D", function() require("telescope.builtin").lsp_type_definitions() end, { desc = "LSP: Type [D]efinition" })
-map("n", "<leader>ds", function() require("telescope.builtin").lsp_document_symbols() end, { desc = "LSP: [D]ocument [S]ymbols" })
-map("n", "<leader>ws", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, { desc = "LSP: [W]orkspace [S]ymbols" })
+map("n", "gD", function()
+  require("telescope.builtin").lsp_definitions()
+end, { desc = "LSP: [G]oto [D]efinition" })
+map("n", "gr", function()
+  require("telescope.builtin").lsp_references()
+end, { desc = "LSP: [G]oto [R]eferences" })
+map("n", "gi", function()
+  require("telescope.builtin").lsp_implementations()
+end, { desc = "LSP: [G]oto [I]mplementation" })
+map("n", "<leader>D", function()
+  require("telescope.builtin").lsp_type_definitions()
+end, { desc = "LSP: Type [D]efinition" })
+map("n", "<leader>ds", function()
+  require("telescope.builtin").lsp_document_symbols()
+end, { desc = "LSP: [D]ocument [S]ymbols" })
+map("n", "<leader>ws", function()
+  require("telescope.builtin").lsp_dynamic_workspace_symbols()
+end, { desc = "LSP: [W]orkspace [S]ymbols" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: [C]ode [A]ction" })
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" })
 map("n", "gd", vim.lsp.buf.declaration, { desc = "LSP: [G]oto [D]eclaration" })
 
+-- Dadbod UI (Database client)
+map("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "DBUI: Toggle UI" })
+map("n", "<leader>da", "<cmd>DBUIAddConnection<CR>", { desc = "DBUI: Add Connection" })
+map("n", "<leader>df", "<cmd>DBUIFindBuffer<CR>", { desc = "DBUI: Find Buffer" })
+
+vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selected text up" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
