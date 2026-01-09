@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright" }
+local servers = { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright", "dartls" }
 vim.lsp.enable(servers)
 
 -- Configuración especial para vtsls (TypeScript/React)
@@ -145,6 +145,18 @@ vim.lsp.config.pyright = {
         useLibraryCodeForTypes = true,
         typeCheckingMode = "basic",
       },
+    },
+  },
+}
+
+-- Configuración especial para dartls (Dart/Flutter)
+vim.lsp.config.dartls = {
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true,
+      updateImportsOnRename = true,
+      enableSnippets = true,
     },
   },
 }

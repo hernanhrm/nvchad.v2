@@ -17,6 +17,9 @@ local options = {
 
     -- Ruff para Python (linter + formatter)
     python = { "ruff_format", "ruff_organize_imports" },
+
+    -- Dart/Flutter formatting
+    dart = { "dart_format" },
   },
 
   format_on_save = {

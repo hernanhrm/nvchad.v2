@@ -67,3 +67,10 @@ map("n", "<leader>df", "<cmd>DBUIFindBuffer<CR>", { desc = "DBUI: Find Buffer" }
 
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move selected text up" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected text down" })
+
+-- Flutter keybindings
+map("n", "<leader>fr", "<cmd>FlutterRun<CR>", { desc = "Flutter: Run App" })
+map("n", "<leader>fR", "<cmd>FlutterReload<CR>", { desc = "Flutter: Hot Reload" })
+map("n", "<leader>fq", "<cmd>FlutterQuit<CR>", { desc = "Flutter: Quit" })
+map("n", "<leader>fd", "<cmd>FlutterDevTools<CR>", { desc = "Flutter: DevTools" })
+map("n", "<leader>fs", "<cmd>FlutterSelectDevice<CR>", { desc = "Flutter: Select Device" })

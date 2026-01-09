@@ -24,6 +24,7 @@ return {
 
         -- debug
         "delve",
+        "dart-debug-adapter",
       },
     },
   },

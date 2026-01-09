@@ -105,5 +105,38 @@ return {
         path = get_delve_path(),
       },
     }
+
+    local function get_dart_debug_adapter_path()
+      local mason_dart = vim.fn.stdpath "data" .. "/mason/bin/dart-debug-adapter"
+      if vim.fn.executable(mason_dart) == 1 then
+        return mason_dart
+      end
+      return "dart-debug-adapter"
+    end
+
+    dap.configurations.dart = {
+      {
+        type = "dart",
+        request = "launch",
+        name = "Launch Flutter App",
+        dartSdkPath = vim.fn.expand "$HOME/flutter/bin/cache/dart-sdk/",
+        flutterSdkPath = vim.fn.expand "$HOME/flutter",
+        program = "${workspaceFolder}/lib/main.dart",
+        cwd = "${workspaceFolder}",
+      },
+      {
+        type = "dart",
+        request = "launch",
+        name = "Launch Dart Script",
+        program = "${workspaceFolder}/${file}",
+        cwd = "${workspaceFolder}",
+      },
+    }
+
+    dap.adapters.dart = {
+      type = "executable",
+      command = get_dart_debug_adapter_path(),
+      args = { "flutter" },
+    }
   end,
 }
