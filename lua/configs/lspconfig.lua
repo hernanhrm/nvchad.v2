@@ -1,6 +1,6 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright", "dartls" }
+local servers = { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright", "dartls", "lua_ls", "gdscript" }
 vim.lsp.enable(servers)
 
 -- Configuración especial para vtsls (TypeScript/React)

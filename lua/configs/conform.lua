@@ -20,6 +20,9 @@ local options = {
 
     -- Dart/Flutter formatting
     dart = { "dart_format" },
+
+    -- GDScript formatting (uses LSP)
+    gdscript = { "gdformat" },
   },
 
   format_on_save = {
