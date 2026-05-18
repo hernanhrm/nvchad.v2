@@ -15,6 +15,10 @@ local options = {
     css = { "biome" },
     html = { "biome" },
 
+    -- Svelte/Astro formatting
+    svelte = { "prettier" },
+    astro = { "prettier" },
+
     -- Ruff para Python (linter + formatter)
     python = { "ruff_format", "ruff_organize_imports" },
 
@@ -23,6 +27,9 @@ local options = {
 
     -- GDScript formatting (uses LSP)
     gdscript = { "gdformat" },
+
+    -- Rust formatting
+    rust = { "rustfmt" },
   },
 
   format_on_save = {

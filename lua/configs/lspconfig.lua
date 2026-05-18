@@ -1,6 +1,7 @@
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright", "dartls", "lua_ls", "gdscript" }
+local servers =
+  { "html", "cssls", "gopls", "vtsls", "jsonls", "pyright", "dartls", "lua_ls", "gdscript", "svelte", "astro", "tailwindcss" }
 vim.lsp.enable(servers)
 
 -- Configuración especial para vtsls (TypeScript/React)
@@ -157,6 +158,18 @@ vim.lsp.config.dartls = {
       showTodos = true,
       updateImportsOnRename = true,
       enableSnippets = true,
+    },
+  },
+}
+
+-- Configuración especial para tailwindcss (soporte Astro y Svelte)
+vim.lsp.config.tailwindcss = {
+  settings = {
+    tailwindCSS = {
+      includeLanguages = {
+        astro = "html",
+        svelte = "html",
+      },
     },
   },
 }

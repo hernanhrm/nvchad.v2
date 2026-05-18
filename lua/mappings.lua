@@ -36,6 +36,20 @@ map("n", "<leader><leader>", function()
   }
 end, { desc = "Switch to last buffer" })
 
+-- FFF keybinds (overriding NvChad telescope file/grep pickers)
+map("n", "<leader>ff", function()
+  require("fff").find_files()
+end, { desc = "FFF: Find files" })
+map("n", "<leader>fw", function()
+  require("fff").live_grep()
+end, { desc = "FFF: Live grep" })
+map("n", "<leader>fz", function()
+  require("fff").live_grep { grep = { modes = { "fuzzy", "plain" } } }
+end, { desc = "FFF: Fuzzy grep" })
+map("n", "<leader>fc", function()
+  require("fff").live_grep { query = vim.fn.expand "<cword>" }
+end, { desc = "FFF: Search current word" })
+
 -- LSP keybinds
 map("n", "gD", function()
   require("telescope.builtin").lsp_definitions()
@@ -74,3 +88,11 @@ map("n", "<leader>fR", "<cmd>FlutterReload<CR>", { desc = "Flutter: Hot Reload" 
 map("n", "<leader>fq", "<cmd>FlutterQuit<CR>", { desc = "Flutter: Quit" })
 map("n", "<leader>fd", "<cmd>FlutterDevTools<CR>", { desc = "Flutter: DevTools" })
 map("n", "<leader>fs", "<cmd>FlutterSelectDevice<CR>", { desc = "Flutter: Select Device" })
+
+-- Rust keymaps (rustaceanvim)
+map("n", "<leader>rr", "<cmd>RustLsp runnables<CR>", { desc = "Rust: Runnables" })
+map("n", "<leader>rd", "<cmd>RustLsp debuggables<CR>", { desc = "Rust: Debuggables" })
+map("n", "<leader>re", "<cmd>RustLsp expandMacro<CR>", { desc = "Rust: Expand Macro" })
+map("n", "<leader>rc", "<cmd>RustLsp openCargo<CR>", { desc = "Rust: Open Cargo.toml" })
+map("n", "<leader>rp", "<cmd>RustLsp parentModule<CR>", { desc = "Rust: Parent Module" })
+map("n", "<leader>ri", "<cmd>RustLsp inlayHints toggle<CR>", { desc = "Rust: Toggle Inlay Hints" })

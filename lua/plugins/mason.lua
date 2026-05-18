@@ -11,9 +11,12 @@ return {
         "lua-language-server",
         "json-lsp",
         "pyright",
+        "svelte-language-server",
+        "rust-analyzer",
 
         -- Formatters & Linters
         "biome",
+        "prettier",
         "stylua",
         "goimports",
         "gci",
@@ -25,6 +28,7 @@ return {
         -- debug
         "delve",
         "dart-debug-adapter",
+        "codelldb",
       },
     },
   },
